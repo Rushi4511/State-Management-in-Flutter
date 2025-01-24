@@ -42,6 +42,7 @@ class _CompanyViewState extends State<CompanyView> {
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text("Company Name: ${Company.of(context).compName}"),
             Text("Company Name: ${Company.of(context).empCount}")
@@ -50,7 +51,19 @@ class _CompanyViewState extends State<CompanyView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {});
+          setState(() {
+            Company.of(context).compName = "Core2Web";
+
+            if (Company.of(context).empCount != 100) {
+              
+              Company.of(context).empCount++;
+
+            } else {
+              
+              Company.of(context).empCount = 0;
+            
+            }
+          });
         },
       ),
     );
@@ -59,10 +72,10 @@ class _CompanyViewState extends State<CompanyView> {
 
 // ignore: must_be_immutable
 class Company extends InheritedWidget {
-  final String compName;
-  final int empCount;
+  String compName;
+  int empCount;
 
-  const Company({
+  Company({
     super.key,
     required this.compName,
     required this.empCount,
