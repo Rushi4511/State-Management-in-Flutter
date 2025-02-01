@@ -59,12 +59,8 @@ class _ConsumerAppState extends State<ConsumerApp> {
           const SizedBox(
             height: 20,
           ),
-          Consumer(
-            builder: (context, value, child) {
-              log("In Consumer");
-              return Column(
-                children: [
-                  Text(Provider.of<Project>(context).projDom),
+
+          Text(Provider.of<Project>(context).projDom),
                   const SizedBox(
                     height: 20,
                   ),
@@ -72,10 +68,7 @@ class _ConsumerAppState extends State<ConsumerApp> {
                   const SizedBox(
                     height: 20,
                   )
-                ],
-              );
-            },
-          ),
+          ,
           const SizedBox(
             height: 20,
           ),
