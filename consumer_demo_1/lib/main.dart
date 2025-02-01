@@ -59,8 +59,12 @@ class _ConsumerAppState extends State<ConsumerApp> {
           const SizedBox(
             height: 20,
           ),
-
-          Text(Provider.of<Project>(context).projDom),
+          Consumer(
+            builder: (context, value, child) {
+              log("In Consumer");
+              return Column(
+                children: [
+                  Text(Provider.of<Project>(context).projDom),
                   const SizedBox(
                     height: 20,
                   ),
@@ -68,13 +72,17 @@ class _ConsumerAppState extends State<ConsumerApp> {
                   const SizedBox(
                     height: 20,
                   )
-          ,
+                ],
+              );
+            },
+          ),
           const SizedBox(
             height: 20,
           ),
           ElevatedButton(
             onPressed: () {
-              Provider.of<Project>(context,listen: false).changeData("EdTech", "Flutter");
+              Provider.of<Project>(context, listen: false)
+                  .changeData("EdTech", "Flutter");
             },
             child: Text("Change Data"),
           ),
