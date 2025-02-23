@@ -13,4 +13,11 @@ class PlayerController extends GetxController {
       obj.playerRole = playerRole;
     });
   }
+
+  void changeTeam(String team) {
+    playerObj.update((obj) {
+      obj!.team = team;
+      
+    });
+  }
 }
