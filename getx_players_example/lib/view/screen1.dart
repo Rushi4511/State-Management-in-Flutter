@@ -21,6 +21,9 @@ class _Screen1State extends State<Screen1> {
         Text(  
           "Player Team: ",
         ),
+        Text(  
+          "Player Team: ",
+        ),
       ],
     );
   }
